@@ -1,0 +1,137 @@
+:root {
+    --bg-color: #f4f7f9;
+    --card-bg-color: #ffffff;
+    --text-color: #2c3e50;
+    --primary-color: #3498db;
+    --green-color: #2ecc71;
+    --gray-color: #95a5a6;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    --cat-personal: #3498db; /* Mavi */
+    --cat-work: #34495e;     /* Koyu Gri */
+    --cat-family: #27ae60;   /* Yeşil */
+    --cat-health: #e67e22;   /* Turuncu */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-weight: 700;
+    margin: 0;
+}
+
+header p {
+    font-size: 1rem;
+    color: var(--gray-color);
+}
+
+#schedule-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.schedule-item {
+    background-color: var(--card-bg-color);
+    border-left: 5px solid var(--gray-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.schedule-item.current {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+    opacity: 1;
+}
+
+.schedule-item.completed {
+    opacity: 0.5;
+    background-color: #eafaf1;
+}
+
+.schedule-item.completed .item-title {
+    text-decoration: line-through;
+}
+
+.item-time {
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.item-content {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.item-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #7f8c8d;
+}
+
+.item-actions {
+    margin-left: auto;
+}
+
+.complete-checkbox {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+/* Kategori Renkleri */
+.schedule-item[data-category="personal"] { border-left-color: var(--cat-personal); }
+.schedule-item[data-category="work"] { border-left-color: var(--cat-work); }
+.schedule-item[data-category="family"] { border-left-color: var(--cat-family); }
+.schedule-item[data-category="health"] { border-left-color: var(--cat-health); }
+
+/* Mobil Cihazlar İçin */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .schedule-item {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .item-time {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+    .item-content {
+        padding: 0;
+        width: 100%;
+    }
+    .item-actions {
+        margin-left: 0;
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+}
